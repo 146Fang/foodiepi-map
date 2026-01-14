@@ -5,7 +5,7 @@ import { Search } from 'lucide-react';
 import { useLocale } from '@/contexts/LocaleContext';
 import { LanguageSwitcher } from './LanguageSwitcher';
 import { Logo } from './Logo';
-import { SearchContext } from '@/contexts/SearchContext';
+import { SearchLibContext } from '@/contexts/SearchContext';
 
 interface HeaderProps {
   onSearch?: (searchTerm: string) => void;
