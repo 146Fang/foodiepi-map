@@ -6,26 +6,25 @@ interface SearchContextType {
   setSearchTerm: (term: string) => void;
 }
 
-// 關鍵：這裡只定義「一個」變數
-export const SearchContext = createContext<SearchContextType | undefined>(undefined);
+// 這裡的名字我改成了 UniqueSearchStore，確保它不會再噴出 "SearchContext redefined"
+export const UniqueSearchStore = createContext<SearchContextType | undefined>(undefined);
 
 export function SearchProvider({ children, onSearch }: { children: React.ReactNode; onSearch: (term: string) => void }) {
   const [searchTerm, setSearchTerm] = useState('');
-
   const updateSearch = (term: string) => {
     setSearchTerm(term);
     onSearch(term);
   };
 
   return (
-    <SearchContext.Provider value={{ searchTerm, setSearchTerm: updateSearch }}>
+    <UniqueSearchStore.Provider value={{ searchTerm, setSearchTerm: updateSearch }}>
       {children}
-    </SearchContext.Provider>
+    </UniqueSearchStore.Provider>
   );
 }
 
 export const useSearch = () => {
-  const context = useContext(SearchContext);
+  const context = useContext(UniqueSearchStore);
   if (!context) throw new Error('useSearch must be used within a SearchProvider');
   return context;
 };
