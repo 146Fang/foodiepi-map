@@ -9,7 +9,7 @@ import { getAllRestaurants, searchRestaurants, Restaurant } from '@/services/res
 export default function Home() {
   const [restaurants, setRestaurants] = useState<Restaurant[]>([]);
 
-  // 1. 修復初始化數據加載
+  // 修正 1：處理初始數據加載
   useEffect(() => {
     const loadData = async () => {
       const data = await getAllRestaurants();
@@ -18,9 +18,9 @@ export default function Home() {
     loadData();
   }, []);
 
-  // 2. 修復搜尋邏輯（這就是你剛才報錯的第 25 行）
+  // 修正 2：處理搜尋邏輯（這就是解決第 25 行報錯的關鍵）
   const handleSearch = async (term: string) => {
-    // 必須先 await 拿到結果，再進行 setRestaurants
+    // 加上 await，確保先拿到「結果」，再存入「State」
     const results = await searchRestaurants(term);
     setRestaurants(results);
   };
