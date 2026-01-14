@@ -17,7 +17,7 @@ export default function Home() {
     loadData();
   }, []);
 
-  // 這裡加上 async 與 await 是解決報錯的關鍵
+  // 關鍵點：這裡必須有 async 和 await
   const handleSearch = async (term: string) => {
     const results = await searchRestaurants(term);
     setRestaurants(results);
