@@ -5,7 +5,8 @@ import { Search } from 'lucide-react';
 import { useLocale } from '@/contexts/LocaleContext';
 import { LanguageSwitcher } from './LanguageSwitcher';
 import { Logo } from './Logo';
-import { SearchLibContext } from '@/contexts/AppSearch';
+// 將 SearchLibContext 改為 AppSearchProvider (或是你在 AppSearch.tsx 裡定義的名字)
+import { AppSearchProvider } from '@/contexts/AppSearch';
 
 interface HeaderProps {
   onSearch?: (searchTerm: string) => void;

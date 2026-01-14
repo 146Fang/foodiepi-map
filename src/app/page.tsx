@@ -1,9 +1,9 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import Header from '@/components/Header';
+import { Header } from '@/components/Header';
 import { AppSearchProvider } from '@/contexts/AppSearch'; // 注意：這裡必須是 AppSearch，不是 MyNewSearch
-import RestaurantMap from '@/components/RestaurantMap';
+import { RestaurantMap } from '@/components/RestaurantMap';
 import { getAllRestaurants, searchRestaurants, Restaurant } from '@/services/restaurantService';
 
 
