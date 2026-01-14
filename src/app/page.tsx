@@ -6,7 +6,7 @@ import { usePiAuth } from '@/hooks/usePiAuth';
 import { RestaurantMap } from '@/components/RestaurantMap';
 import { Restaurant } from '@/services/restaurantService';
 import { getAllRestaurants, searchRestaurants } from '@/services/restaurantService';
-import { <AppSearchProvider> } from '@/contexts/MyNewSearch';
+import { AppSearchProvider } from '@/contexts/MyNewSearch';
 
 export default function Home() {
   return (
