@@ -7,7 +7,8 @@ interface SearchContextType {
   setSearchTerm: (term: string) => void;
   onSearch: (term: string) => void;
 }
-
+// 加上 export
+export const SearchContext = createContext<SearchContextType | undefined>(undefined);
 const SearchContext = createContext<SearchContextType | undefined>(undefined);
 
 export function SearchProvider({ children, onSearch }: { children: React.ReactNode; onSearch: (term: string) => void }) {
