@@ -12,23 +12,27 @@ interface HeaderProps {
   onSearch?: (searchTerm: string) => void;
 }
 
+// ... 前方的導入部分保持不變
+
 export function Header({ onSearch }: HeaderProps) {
   const { t } = useLocale();
   const [searchTerm, setSearchTerm] = useState('');
   
-  // 修正：使用 AppSearchContext 而非不存在的 SearchContext
-  const searchContext = useContext(AppSearchContext);
+  // 核心修正：將 SearchContext 改為 AppSearchContext
+  const searchContext = useContext(AppSearchContext); 
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    // 優先使用 Props 的 onSearch，否則使用 Context 的
+    // 安全地取得搜尋處理函式
     const finalOnSearch = onSearch || searchContext?.onSearch;
     
     if (finalOnSearch) {
       finalOnSearch(searchTerm);
     }
   };
+
+  // ... 後方的 return 部分保持不變
 
   return (
     <header className="bg-white border-b sticky top-0 z-50">

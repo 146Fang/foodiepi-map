@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-// 導入你的 Search Provider
+// 導入 AppSearchProvider
 import { AppSearchProvider } from "@/contexts/AppSearch";
 
 export const metadata: Metadata = {
@@ -16,7 +16,7 @@ export default function RootLayout({
   return (
     <html lang="zh">
       <body>
-        {/* 必須用 Provider 包裹 children，Header 才能找到 Context */}
+        {/* 補上 Provider，這是讓 Header 正常運作的關鍵 */}
         <AppSearchProvider>
           {children}
         </AppSearchProvider>
