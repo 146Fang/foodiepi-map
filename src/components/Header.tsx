@@ -10,7 +10,7 @@ import { AppSearchContext } from '@/contexts/AppSearch';
 export function Header({ onSearch }: { onSearch?: (term: string) => void }) {
   const { t } = useLocale();
   const [searchTerm, setSearchTerm] = useState('');
-  // 必須與導入名稱完全一致
+  // 核心修正：統一使用 AppSearchContext
   const searchContext = useContext(AppSearchContext);
 
   const handleSubmit = (e: React.FormEvent) => {

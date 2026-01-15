@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-// 確保路徑正確
 import { AppSearchProvider } from "@/contexts/AppSearch";
 
 export const metadata: Metadata = {
@@ -16,8 +15,8 @@ export default function RootLayout({
   return (
     <html lang="zh">
       <body>
-        {/* 強制傳入一個空函式來滿足類型檢查 */}
-        <AppSearchProvider onSearch={(term: string) => { console.log(term); }}>
+        {/* 必須傳入 onSearch 函式以滿足 TypeScript 要求 */}
+        <AppSearchProvider onSearch={(term: string) => { console.log('Searching:', term); }}>
           {children}
         </AppSearchProvider>
       </body>
